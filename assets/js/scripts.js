@@ -20,7 +20,7 @@ submitElement.addEventListener("click", (e) => {
 	fetch(modifiedURL)
 		.then((res) => res.json())
 		.then((data) => {
-			movieSearch.innerHTML = "";
+			movieSearch.innerHTML = ""; //replace old search with new search
 			const movies = data.results;
 			const movieBlock = createContainer(movies);
 			movieSearch.appendChild(movieBlock);
@@ -68,3 +68,6 @@ function createContainer(movies, title = "") {
 
 	return movieElement;
 }
+
+//function to create cards
+

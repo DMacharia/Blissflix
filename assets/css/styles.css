@@ -70,3 +70,31 @@ body {
 	color: #02eb02;
 	background: #5a4125;
 }
+
+#movie-search {
+	margin-top: 20px;
+	margin-bottom: 50px;
+}
+
+.movie {
+	margin-bottom: 50px;
+}
+
+section {
+	display: flex;
+	width: 100%;
+	overflow-x: auto;
+}
+
+section img {
+	width: 250px;
+	transition: 250ms all;
+	border-radius: 5%;
+	padding: 2px;
+}
+
+img:hover {
+	margin-left: 0 40px;
+	transform: scale(1.3);
+	cursor: pointer;
+}
