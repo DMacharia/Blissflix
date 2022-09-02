@@ -133,3 +133,15 @@ function searchMovie(value) {
 function foundError(error) {
 	console.log(error);
 }
+
+function getUpcomingMovies() {
+	const path = "/movie/upcoming";
+	const url = dynamicUrl(path);
+
+	requestMovies(url, renderSearch, foundError);
+}
+
+document.addEventListener("DOMContentLoaded", (e) => {
+	getUpcomingMovies();
+});
+
