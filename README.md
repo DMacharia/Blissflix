@@ -35,7 +35,7 @@
 
 - CSS - which was used to style the pages incuding the left aside navigation bar
 
-\*JavaScript - which was used to build the functionality of the project including DOM manipulation.
+- JavaScript - which was used to build the functionality of the project
 
 ## Reference
 
