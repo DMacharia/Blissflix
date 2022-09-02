@@ -54,8 +54,6 @@ function createContainer(movies, title = "") {
 	return movieElement;
 }
 
-
-
 //need to create a iFrame where the trailers will be displayed
 function createIframe(video) {
 	const iframe = document.createElement("iframe");
@@ -104,7 +102,7 @@ document.addEventListener("click", (e) => {
 });
 
 document.addEventListener("DOMContentLoaded", (e) => {
-	searchMovie("Thor");
+	searchMovie("thor");
 	getUpcomingMovies();
 	getPopularMovies();
 	getNowPlayingMovies();

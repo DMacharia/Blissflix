@@ -10,7 +10,63 @@ body {
 	height: 100vh;
 }
 
-#inputValue {
+.navbar {
+	position: fixed;
+	width: 100%;
+	z-index: 999;
+	padding: 30px 0;
+	font-family: "Ubuntu", sana-serif;
+	transition: all 0.3s ease;
+}
+
+.navbar.sticky {
+	padding: 15px 0;
+	background: #00a300;
+}
+
+.navbar .max-width {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.navbar .logo a {
+	color: #fff;
+	font-size: 35px;
+	font-weight: 600;
+}
+
+.navbar .logo a span {
+	color: #02eb02;
+	transition: all 0.3s ease;
+}
+
+.navbar.sticky .logo a span {
+	color: #fff;
+}
+
+.navbar .menu li {
+	list-style: none;
+	display: inline-block;
+}
+
+.navbar .menu li a {
+	color: #fff;
+	font-size: 18px;
+	font-weight: 500;
+	margin-left: 25px;
+	transition: color 0.3s ease;
+}
+
+.navbar .menu li a:hover {
+	color: #02eb02;
+}
+
+.navbar.sticky .menu li a:hover {
+	color: #fff;
+}
+
+/* #inputValue {
 	width: 500px;
 	outline: none;
 	color: #495057;
@@ -22,9 +78,9 @@ body {
 	font-size: 1.25rem;
 	font-weight: 400;
 	line-height: 0.75;
-}
+} */
 
-.container {
+/* .container {
 	text-align: center;
 	padding: 0 80px;
 	margin: auto;
@@ -69,12 +125,12 @@ body {
 #searchTab:hover {
 	color: #02eb02;
 	background: #5a4125;
-}
+} */
 
-#movie-search {
+/* #movie-search {
 	margin-top: 20px;
 	margin-bottom: 50px;
-}
+} */
 
 .movie {
 	margin-bottom: 50px;
@@ -91,7 +147,7 @@ section {
 }
 
 section img {
-	width: 180px;
+	width: 200px;
 	transition: 250ms all;
 	border-radius: 5%;
 	padding: 2px;
@@ -117,6 +173,9 @@ img:hover {
 }
 .content-display {
 	display: block;
+	padding-bottom: 20px;
+	background-color: #433729;
+	border-radius: 2%;
 }
 #content-close {
 	vertical-align: middle;

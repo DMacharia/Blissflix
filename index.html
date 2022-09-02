@@ -13,24 +13,41 @@
 	</head>
 	<body>
 		<div class="container">
-			<h1>BlissFLIX!</h1>
-			<h3>Your Guide to Entertainment-<span>Bliss</span></h3>
+			<nav class="navbar">
+				<div class="max-width">
+					<div class="logo">
+						<a href="#">Bliss<span>FLIX!</span></a>
+						<h3>Your Guide to Entertainment-<span>Bliss</span></h3>
 
-			<form>
-				<div class="form-group">
-					<input type="text" id="inputValue" />
+						<form>
+							<div class="form-group">
+								<input type="text" id="inputValue" />
+							</div>
+							<button type="submit" id="searchTab">Search Trailer</button>
+						</form>
+					</div>
+					<ul class="menu">
+						<li><a href="#">Home</a></li>
+						<li><a href="#">About</a></li>
+						<li><a href="#">Popular</a></li>
+						<li><a href="#">Now Playing</a></li>
+						<li><a href="#">Top Rated</a></li>
+						<li><a href="#">Upcoming</a></li>
+					</ul>
+					<div class="menu-btn">
+						<i class="fa fa-bars"></i>
+					</div>
 				</div>
-				<button type="submit" id="searchTab">Search Trailer</button>
-			</form>
+			</nav>
 		</div>
 
 		<div id="movie-search">
-            <!-- where all the movies searches are going to be -->
-        </div>
-        
+			<!-- where all the movies searches are going to be -->
+		</div>
+
 		<div id="movie-container">
-            <!-- where all the top rated, popular and upcoming movies will be -->
-        </div>
+			<!-- where all the top rated, popular and upcoming movies will be -->
+		</div>
 
 		<script src="assets/js/apiWorkings.js"></script>
 		<script src="assets/js/scripts.js"></script>

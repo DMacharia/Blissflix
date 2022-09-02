@@ -38,9 +38,6 @@ function ondisplayMovies(data) {
 	movieContainer.appendChild(movieBlock);
 }
 
-
-
-
 function getUpcomingMovies() {
 	const path = "/movie/upcoming";
 	const url = dynamicUrl(path);
