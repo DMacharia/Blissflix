@@ -19,12 +19,7 @@ submitElement.addEventListener("click", (e) => {
 
 	fetch(modifiedURL)
 		.then((res) => res.json())
-		.then((data) => {
-			movieSearch.innerHTML = ""; //replace old search with new search
-			const movies = data.results;
-			const movieBlock = createContainer(movies);
-			movieSearch.appendChild(movieBlock);
-		})
+		.then(renderSearch)
 		.catch((error) => {
 			console.log(error);
 		});
@@ -69,5 +64,25 @@ function createContainer(movies, title = "") {
 	return movieElement;
 }
 
-//function to create cards
+//refactor search
+function renderSearch(data) {
+	movieSearch.innerHTML = ""; //replace old search with new search
+	const movies = data.results;
+	const movieBlock = createContainer(movies);
+	movieSearch.appendChild(movieBlock);
+}
 
+//function to add click listeners to image
+document.addEventListener("click", (e) => {
+	const target = e.target;
+
+	if (target.tagName.toLowerCase() === "img"){
+        const parent = e.target.parentElement;
+        const content = parent.nextElementSibling
+        content.classList.add("content-display"); //add a new block where the trailer will be
+    }
+    if (target.id === "content-close") {
+		const content = target.parentElement;
+		content.classList.remove("content-display");//remove the new block when closed
+    }
+})

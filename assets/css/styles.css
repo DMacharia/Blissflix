@@ -86,8 +86,12 @@ section {
 	overflow-x: auto;
 }
 
+::-webkit-scrollbar {
+	width: 1px;
+}
+
 section img {
-	width: 250px;
+	width: 180px;
 	transition: 250ms all;
 	border-radius: 5%;
 	padding: 2px;
@@ -95,6 +99,60 @@ section img {
 
 img:hover {
 	margin-left: 0 40px;
-	transform: scale(1.3);
+	transform: scale(1.15);
 	cursor: pointer;
+}
+
+.content {
+	border: 1px red;
+	display: none;
+}
+
+.content div {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	align-items: center;
+	margin: 10px;
+}
+.content-display {
+	display: block;
+}
+#content-close {
+	vertical-align: middle;
+	border: none;
+	color: inherit;
+	border-radius: 50%;
+	background: transparent;
+	position: relative;
+	width: 32px;
+	height: 32px;
+	opacity: 0.6;
+	cursor: pointer;
+}
+
+#content-close:focus,
+#content-close:hover {
+	opacity: 1;
+	background: rgba(128, 128, 128, 0.5);
+}
+#content-close:active {
+	background: rgba(128, 128, 128, 0.9);
+}
+/* tines of the X */
+#content-close::before,
+#content-close::after {
+	content: " ";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	height: 20px;
+	width: 4px;
+	background-color: currentColor;
+}
+#content-close::before {
+	transform: translate(-50%, -50%) rotate(45deg);
+}
+#content-close::after {
+	transform: translate(-50%, -50%) rotate(-45deg);
 }
