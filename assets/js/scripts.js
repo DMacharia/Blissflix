@@ -58,8 +58,8 @@ function createContainer(movies, title = "") {
 function createIframe(video) {
 	const iframe = document.createElement("iframe");
 	iframe.src = `https://www.youtube.com/embed/${video.key}`;
-	iframe.width = 460;
-	iframe.height = 315;
+	iframe.width = 490;
+	iframe.height = 375;
 	iframe.allowFullscreen = true;
 
 	return iframe;

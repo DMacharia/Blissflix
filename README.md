@@ -17,6 +17,9 @@
 
 <p>BlissFlix is a website that seeks to efficiently deliver quick information that people need to know to have an excellent movie choice to watch. BlissFlix saves time. It is your guide to entertainment Bliss</p>
 
+## ScreenShots
+![BlissFlix](/assets/Screenshot from 2022-09-03 00-12-07.png?raw=true "BlissFlix Search Screen")
+
 ### Requirements
 
 - Either a computer,phone,tablet or an Ipad
@@ -24,6 +27,8 @@
 - An access to the Internet
 
 ### Installation Process
+
+- No complex installations required. You just need to have access to the internet 
 
 [Go Back to the top](#phase1project)
 
@@ -67,7 +72,7 @@ SOFTWARE.
 
 [Go Back to the top](#phase1project)
 
-## Authors Info
+## Author's Info
 
 Slack Profile - [Daniel Macharia]
 
