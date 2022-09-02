@@ -20,17 +20,7 @@ function dynamicUrl(path) {
 submitElement.addEventListener("click", (e) => {
 	e.preventDefault();
 	const value = inputElement.value;
-	const path = "/search/movie";
-	const modifiedURL = dynamicUrl(path) + "&query=" + value;
-
-	fetch(modifiedURL)
-		.then((res) => res.json())
-		.then(renderSearch)
-		.catch((error) => {
-			console.log(error);
-		});
-
-	console.log(value);
+	searchMovie(value);
 
 	inputElement.value = ""; // reset
 });
@@ -97,7 +87,7 @@ document.addEventListener("click", (e) => {
 		console.log(e); //helps get the id of the movieId
 		const parent = e.target.parentElement;
 		const content = parent.nextElementSibling;
-		content.classList.add("content-display"); //add a new block where the trailer will be
+		content.classList.add("content-display"); //add a new block where the trailer will be displayed
 		const movieId = target.dataset.movieId;
 		const path = `/movie/${movieId}/videos`;
 		const modifiedURL = dynamicUrl(path);
@@ -105,8 +95,9 @@ document.addEventListener("click", (e) => {
 		fetch(modifiedURL)
 			.then((res) => res.json())
 			.then((data) => {
+				content.innerHTML = `<button id="content-close" aria-label="Close"></button>`;
 				const videos = data.results;
-				const length = videos.length > 4 ? 4 : videos.length;
+				const length = videos.length > 3 ? 3 : videos.length;
 				const iframeBlock = document.createElement("div");
 				for (let i = 0; i < length; i++) {
 					//loop over videos max 4
@@ -123,3 +114,22 @@ document.addEventListener("click", (e) => {
 		content.classList.remove("content-display"); //remove the new block when closed
 	}
 });
+
+//refactoring the fetch function
+function requestMovies(url, onSuccess, onFailure) {
+	fetch(url) //display movieposters
+		.then((res) => res.json())
+		.then(onSuccess)
+		.catch(onFailure);
+}
+
+function searchMovie(value) {
+	const path = "/search/movie"; //path specification
+	const url = dynamicUrl(path) + "&query=" + value;
+
+	requestMovies(url, renderSearch, foundError);
+}
+
+function foundError(error) {
+	console.log(error);
+}
