@@ -1,6 +1,6 @@
 //KEY AND URLs
 const API_KEY = "7d149566af8dd84bd3a1e75d071091be";
-const IMAGE_URL = "https://image.tmdb.org/t/p/w500"
+const IMAGE_URL = "https://image.tmdb.org/t/p/w500";
 const URL =
 	"https://api.themoviedb.org/3/search/movie?api_key=7d149566af8dd84bd3a1e75d071091be";
 
@@ -10,7 +10,7 @@ const inputElement = document.getElementById("inputValue");
 const movieSearch = document.getElementById("movie-search");
 const movieContainer = document.getElementById("movie-container");
 
-//fetch 
+//fetch
 submitElement.addEventListener("click", (e) => {
 	e.preventDefault();
 	const value = inputElement.value;
@@ -20,10 +20,11 @@ submitElement.addEventListener("click", (e) => {
 	fetch(modifiedURL)
 		.then((res) => res.json())
 		.then((data) => {
-            const movies = data.results
-            const movieBlock = createContainer(movies);
-            movieSearch.appendChild(movieBlock)		
-        })
+			movieSearch.innerHTML = "";
+			const movies = data.results;
+			const movieBlock = createContainer(movies);
+			movieSearch.appendChild(movieBlock);
+		})
 		.catch((error) => {
 			console.log(error);
 		});
@@ -39,13 +40,13 @@ function createContainer(movies, title = "") {
 	const movieElement = document.createElement("div"); //div to nest all movie elements
 	movieElement.setAttribute("class", "movie");
 
-    const header = document.createElement("h2");
+	const header = document.createElement("h2");
 	header.innerText = title;
 
 	const section = document.createElement("section");
 	section.classList = "section";
 
-    	movies.map((movie) => {
+	movies.map((movie) => {
 		if (movie.poster_path) {
 			const img = document.createElement("img");
 			img.src = IMAGE_URL + movie.poster_path;
@@ -67,4 +68,3 @@ function createContainer(movies, title = "") {
 
 	return movieElement;
 }
-
