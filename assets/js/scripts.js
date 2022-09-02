@@ -78,6 +78,17 @@ function renderSearch(data) {
 	movieSearch.appendChild(movieBlock);
 }
 
+//need to create a iFrame where the trailers will be displayed
+function createIframe(video) {
+	const iframe = document.createElement("iframe");
+	iframe.src = `https://www.youtube.com/embed/${video.key}`;
+	iframe.width = 460;
+	iframe.height = 315;
+	iframe.allowFullscreen = true;
+
+	return iframe;
+}
+
 //function to add click listeners to image
 document.addEventListener("click", (e) => {
 	const target = e.target;
@@ -88,18 +99,27 @@ document.addEventListener("click", (e) => {
 		const content = parent.nextElementSibling;
 		content.classList.add("content-display"); //add a new block where the trailer will be
 		const movieId = target.dataset.movieId;
-        const path = `/movie/${movieId}/videos`
-        const modifiedURL = dynamicUrl(path) 
+		const path = `/movie/${movieId}/videos`;
+		const modifiedURL = dynamicUrl(path);
 
-        fetch(modifiedURL)
-        .then(res => res.json())
-        .then(data => console.log(data))
-        .catch()
+		fetch(modifiedURL)
+			.then((res) => res.json())
+			.then((data) => {
+				const videos = data.results;
+				const length = videos.length > 4 ? 4 : videos.length;
+				const iframeBlock = document.createElement("div");
+				for (let i = 0; i < length; i++) {
+					//loop over videos max 4
+					const video = videos[i];
+					const iframe = createIframe(video);
+					iframeBlock.appendChild(iframe);
+					content.appendChild(iframeBlock);
+				}
+			})
+			.catch((error) => console.log(error));
 	}
 	if (target.id === "content-close") {
 		const content = target.parentElement;
 		content.classList.remove("content-display"); //remove the new block when closed
 	}
 });
-
-//need to create a iFrame where the trailers will be displayed
