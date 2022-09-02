@@ -19,7 +19,7 @@
 
 ## ScreenShots
 
-![BlissFlix](assets/Screenshot from 2022-09-03 00-12-07.png?raw=true)
+![BlissFlix](assets/Screenshot from 2022-09-03 00-12-07.png)
 
 ### Requirements
 
