@@ -138,33 +138,39 @@ function getUpcomingMovies() {
 	const path = "/movie/upcoming";
 	const url = dynamicUrl(path);
 
-	requestMovies(url, renderSearch, foundError);
+	requestMovies(url, ondisplayMovies, foundError);
 }
 
 function getNowPlayingMovies() {
 	const path = "/movie/now_playing";
 	const url = dynamicUrl(path);
 
-	requestMovies(url, renderSearch, foundError);
+	requestMovies(url, ondisplayMovies, foundError);
 }
 
 function getTopRatedMovies() {
 	const path = "/movie/top_rated";
 	const url = dynamicUrl(path);
 
-	requestMovies(url, renderSearch, foundError);
+	requestMovies(url, ondisplayMovies, foundError);
 }
 
 function getPopularMovies() {
 	const path = "/movie/popular";
 	const url = dynamicUrl(path);
 
-	requestMovies(url, renderSearch, foundError);
+	requestMovies(url, ondisplayMovies, foundError);
+}
+//function to render the ondisplay movies
+function ondisplayMovies(data) {
+	const movies = data.results;
+	const movieBlock = createContainer(movies);
+	movieContainer.appendChild(movieBlock);
 }
 
 document.addEventListener("DOMContentLoaded", (e) => {
-	// getUpcomingMovies();
-    getPopularMovies();
-	// getNowPlayingMovies();
-	// getTopRatedMovies();
+	getUpcomingMovies();
+	getPopularMovies();
+	getNowPlayingMovies();
+	getTopRatedMovies();
 });
