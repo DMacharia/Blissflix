@@ -141,7 +141,18 @@ function getUpcomingMovies() {
 	requestMovies(url, renderSearch, foundError);
 }
 
-document.addEventListener("DOMContentLoaded", (e) => {
-	getUpcomingMovies();
-});
+function getNowPlayingMovies() {
+	const path = "/movie/now_playing";
+	const url = dynamicUrl(path);
 
+	requestMovies(url, renderSearch, foundError);
+}
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", (e) => {
+	// getUpcomingMovies();
+	getNowPlayingMovies();
+});
