@@ -101,3 +101,5 @@ document.addEventListener("click", (e) => {
 		content.classList.remove("content-display"); //remove the new block when closed
 	}
 });
+
+//need to create a iFrame where the trailers will be displayed
