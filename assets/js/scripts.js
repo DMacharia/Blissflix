@@ -148,11 +148,23 @@ function getNowPlayingMovies() {
 	requestMovies(url, renderSearch, foundError);
 }
 
+function getTopRatedMovies() {
+	const path = "/movie/top_rated";
+	const url = dynamicUrl(path);
 
+	requestMovies(url, renderSearch, foundError);
+}
 
+function getPopularMovies() {
+	const path = "/movie/popular";
+	const url = dynamicUrl(path);
 
+	requestMovies(url, renderSearch, foundError);
+}
 
 document.addEventListener("DOMContentLoaded", (e) => {
 	// getUpcomingMovies();
-	getNowPlayingMovies();
+    getPopularMovies();
+	// getNowPlayingMovies();
+	// getTopRatedMovies();
 });
