@@ -137,38 +137,43 @@ function foundError(error) {
 function getUpcomingMovies() {
 	const path = "/movie/upcoming";
 	const url = dynamicUrl(path);
+	const titledMovies = ondisplayMovies.bind({ title: "Upcoming Movies" });
 
-	requestMovies(url, ondisplayMovies, foundError);
+	requestMovies(url, titledMovies, foundError);
 }
 
 function getNowPlayingMovies() {
 	const path = "/movie/now_playing";
 	const url = dynamicUrl(path);
+	const titledMovies = ondisplayMovies.bind({ title: "Now Playing Movies" });
 
-	requestMovies(url, ondisplayMovies, foundError);
+	requestMovies(url, titledMovies, foundError);
 }
 
 function getTopRatedMovies() {
 	const path = "/movie/top_rated";
 	const url = dynamicUrl(path);
+	const titledMovies = ondisplayMovies.bind({ title: "Top-Rated Movies" });
 
-	requestMovies(url, ondisplayMovies, foundError);
+	requestMovies(url, titledMovies, foundError);
 }
 
 function getPopularMovies() {
 	const path = "/movie/popular";
 	const url = dynamicUrl(path);
+	const titledMovies = ondisplayMovies.bind({ title: "Popular Movies" });
 
-	requestMovies(url, ondisplayMovies, foundError);
+	requestMovies(url, titledMovies, foundError);
 }
 //function to render the ondisplay movies
 function ondisplayMovies(data) {
 	const movies = data.results;
-	const movieBlock = createContainer(movies);
+	const movieBlock = createContainer(movies, this.title);
 	movieContainer.appendChild(movieBlock);
 }
 
 document.addEventListener("DOMContentLoaded", (e) => {
+	searchMovie("Thor");
 	getUpcomingMovies();
 	getPopularMovies();
 	getNowPlayingMovies();
