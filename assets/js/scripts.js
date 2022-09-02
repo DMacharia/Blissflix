@@ -10,12 +10,18 @@ const inputElement = document.getElementById("inputValue");
 const movieSearch = document.getElementById("movie-search");
 const movieContainer = document.getElementById("movie-container");
 
+//need to create a dynamic url to get movie trailers
+function dynamicUrl(path) {
+	const url = `https://api.themoviedb.org/3${path}?api_key=7d149566af8dd84bd3a1e75d071091be`;
+	return url;
+}
+
 //fetch
 submitElement.addEventListener("click", (e) => {
 	e.preventDefault();
 	const value = inputElement.value;
-
-	const modifiedURL = URL + "&query=" + value;
+	const path = "/search/movie";
+	const modifiedURL = dynamicUrl(path) + "&query=" + value;
 
 	fetch(modifiedURL)
 		.then((res) => res.json())
@@ -76,13 +82,22 @@ function renderSearch(data) {
 document.addEventListener("click", (e) => {
 	const target = e.target;
 
-	if (target.tagName.toLowerCase() === "img"){
-        const parent = e.target.parentElement;
-        const content = parent.nextElementSibling
-        content.classList.add("content-display"); //add a new block where the trailer will be
-    }
-    if (target.id === "content-close") {
+	if (target.tagName.toLowerCase() === "img") {
+		console.log(e); //helps get the id of the movieId
+		const parent = e.target.parentElement;
+		const content = parent.nextElementSibling;
+		content.classList.add("content-display"); //add a new block where the trailer will be
+		const movieId = target.dataset.movieId;
+        const path = `/movie/${movieId}/videos`
+        const modifiedURL = dynamicUrl(path) 
+
+        fetch(modifiedURL)
+        .then(res => res.json())
+        .then(data => console.log(data))
+        .catch()
+	}
+	if (target.id === "content-close") {
 		const content = target.parentElement;
-		content.classList.remove("content-display");//remove the new block when closed
-    }
-})
+		content.classList.remove("content-display"); //remove the new block when closed
+	}
+});
