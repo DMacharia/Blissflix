@@ -18,7 +18,8 @@
 <p>BlissFlix is a website that seeks to efficiently deliver quick information that people need to know to have an excellent movie choice to watch. BlissFlix saves time. It is your guide to entertainment Bliss</p>
 
 ## ScreenShots
-![BlissFlix](/assets/Screenshot from 2022-09-03 00-12-07.png?raw=true "BlissFlix Search Screen")
+
+![BlissFlix](assets/Screenshot from 2022-09-03 00-12-07.png?raw=true)
 
 ### Requirements
 
@@ -28,7 +29,7 @@
 
 ### Installation Process
 
-- No complex installations required. You just need to have access to the internet 
+- No complex installations required. You just need to have access to the internet
 
 [Go Back to the top](#phase1project)
 
@@ -48,7 +49,6 @@
 [Go Back to the top](#phase1project)
 
 ## Licence
-
 
 Copyright (c) [2022] [Daniel Macharia]
 
