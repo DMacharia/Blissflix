@@ -1,6 +1,6 @@
 const API_KEY = "7d149566af8dd84bd3a1e75d071091be";
 const URL =
-	"https://api.themoviedb.org/3/search/movie?api_key=7d149566af8dd84bd3a1e75d071091be&query=thor";
+	"https://api.themoviedb.org/3/search/movie?api_key=7d149566af8dd84bd3a1e75d071091be";
 
 //DOM elements
 const submitElement = document.getElementById("searchTab");
@@ -12,7 +12,9 @@ submitElement.addEventListener("click", (e) => {
 	e.preventDefault();
 	const value = inputElement.value;
 
-	fetch(URL)
+    const modifiedURL = URL + "&query=" + value
+
+	fetch(modifiedURL)
 		.then((res) => res.json())
 		.then((data) => {
 			console.log(data);
@@ -24,4 +26,7 @@ submitElement.addEventListener("click", (e) => {
 	console.log(value);
 
 	inputElement.value = ""; // reset
+
+
 });
+
