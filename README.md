@@ -15,9 +15,7 @@
 
 ## Description
 
-<p>BlissFlix is a website that seeks to efficiently deliver quick information that people need to know to have an excellent choice to watch. BlissFlix saves time, it saves money and is the home of entertainment Bliss</p>
-
-## Installation
+<p>BlissFlix is a website that seeks to efficiently deliver quick information that people need to know to have an excellent movie choice to watch. BlissFlix saves time. It is your guide to entertainment Bliss</p>
 
 ### Requirements
 
@@ -46,7 +44,6 @@
 
 ## Licence
 
-MIT License
 
 Copyright (c) [2022] [Daniel Macharia]
 
