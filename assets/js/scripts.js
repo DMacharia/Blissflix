@@ -102,7 +102,7 @@ document.addEventListener("click", (e) => {
 });
 
 document.addEventListener("DOMContentLoaded", (e) => {
-	searchMovie("God's not dead");
+	searchMovie("Christ");
 	getUpcomingMovies();
 	getPopularMovies();
 	getNowPlayingMovies();
