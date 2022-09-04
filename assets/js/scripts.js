@@ -86,7 +86,7 @@ document.addEventListener("click", (e) => {
 				const length = videos.length > 3 ? 3 : videos.length;
 				const iframeBlock = document.createElement("div");
 				for (let i = 0; i < length; i++) {
-					//loop over videos max 4
+					//loop over videos max 3
 					const video = videos[i];
 					const iframe = createIframe(video);
 					iframeBlock.appendChild(iframe);
@@ -102,7 +102,7 @@ document.addEventListener("click", (e) => {
 });
 
 document.addEventListener("DOMContentLoaded", (e) => {
-	searchMovie("batman");
+	searchMovie("God's not dead");
 	getUpcomingMovies();
 	getPopularMovies();
 	getNowPlayingMovies();
